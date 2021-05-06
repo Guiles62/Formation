@@ -1,6 +1,7 @@
 package com.hemebiotech.analytics;
 
 
+import javax.swing.text.html.HTMLDocument;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
@@ -31,10 +32,11 @@ public class AnalyticsCounter {
 		}
 		return listAlpha;
 	}
-
 	public void write (Map<String, Integer> writen) throws IOException {
 		FileWriter writer = new FileWriter("result.out");
-		writer.write(String.valueOf(writen));
+		for (Map.Entry<String, Integer> entry : writen.entrySet()) {
+		writer.write((entry.getKey() + " : " + entry.getValue()) +"\n");
+		}
 		writer.close();
 	}
 }
