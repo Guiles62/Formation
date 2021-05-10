@@ -23,9 +23,9 @@ import java.util.*;
 public class AnalyticsCounter {
 
 	/**
-	* c'est le point de départ du programme
-	* on va chercher la class ReadSympomDataFromFile et on l'instancie ici en lui indiquant le chemin du .txt
-	* @return le ArrayList créé a partir du fichier.txt
+	* c est le point de depart du programme
+	* on va chercher la class ReadSympomDataFromFile et on l instancie ici en lui indiquant le chemin du .txt
+	* @return le ArrayList cree a partir du fichier.txt
 	*/
 	public List<String> start()  {
 		ReadSymptomDataFromFile symptomsData = new ReadSymptomDataFromFile("Project02Eclipse/symptoms.txt");
@@ -34,9 +34,9 @@ public class AnalyticsCounter {
 
 	/**
 	 * @param tri
-	 * 			Le nom de la liste triée
+	 * 			Le nom de la liste triee
 	 * on tri le ArrayList par ordre alphabetique
-	 * @return le Arraylist trié alphabétiquement
+	 * @return le Arraylist trie alphabetiquement
 	 */
 	public List<String> sort(List<String> tri) {
 		Collections.sort(tri);
@@ -45,10 +45,11 @@ public class AnalyticsCounter {
 	/**
 	 * @param alpha
 	 * on copie le array sur un treemap
-	 * @return le Map trié par ordre alphabetique et comptabilisé
+	 * on utilise le TreeMap plutot que le HashMap etant donne que le tri a ete fait au prealable
+	 * @return le Map trie par ordre alphabetique et comptabilise
 	 */
 	public Map<String, Integer> count (List<String> alpha){
-		//on crée le TreeMap
+		//on cree le TreeMap
 		Map<String, Integer> listAlpha = new TreeMap<>();
 		// on comptabilise les symtomes en les ajoutant au TreeMap
 		for( int i = 0; i<alpha.size(); i++){
@@ -61,7 +62,9 @@ public class AnalyticsCounter {
 		return listAlpha;
 	}
 	/** @param writen
-	 * on écrit le fichier de sortie en y incluant les exceptions
+	 * on ecrit le fichier de sortie en y incluant les exceptions
+	 * @exception IOException
+	 * 	declenchee si le fichier result.out n'a pas ete genere
 	 */
 	public void write (Map<String, Integer> writen)  {
 		try {
