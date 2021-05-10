@@ -1,19 +1,18 @@
 package com.hemebiotech.analytics;
 
 
-import javax.swing.text.html.HTMLDocument;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 /**
- * <b>la classe AnalyticsCounter est celle qui contient la corp du code</b>
+ * <b>the AnalyticsCounter is the class with the program method</b>
  * <p>
- *     on y retrouve :
+ *     we find :
  *     <ul>
- *         <li>la fonction start</li>
- *         <li>la fonction sort</li>
- *         <li>la fonction count</li>
- *         <li>la fonction write</li>
+ *         <li>the method start</li>
+ *         <li>the method sort</li>
+ *         <li>the method count</li>
+ *         <li>the method write</li>
  *     </ul>
  * </p>
  * @see ReadSymptomDataFromFile
@@ -23,20 +22,20 @@ import java.util.*;
 public class AnalyticsCounter {
 
 	/**
-	* c est le point de depart du programme
-	* on va chercher la class ReadSympomDataFromFile et on l instancie ici en lui indiquant le chemin du .txt
-	* @return le ArrayList cree a partir du fichier.txt
+	* it's the start of the program
+	* we will look for the ReadSympomDataFromFile class and we instantiate it here by indicating the path of the file.txt
+	* @return the ArrayList create with the file.txt
 	*/
-	public List<String> start()  {
+	public static List<String> start()  {
 		ReadSymptomDataFromFile symptomsData = new ReadSymptomDataFromFile("Project02Eclipse/symptoms.txt");
-		return symptomsData.GetSymptoms();
+		return symptomsData.getSymptoms();
 	}
 
 	/**
 	 * @param tri
-	 * 			Le nom de la liste triee
-	 * on tri le ArrayList par ordre alphabetique
-	 * @return le Arraylist trie alphabetiquement
+	 * 			the name of the sorted list
+	 * we sort the ArrayList in alphabetical order
+	 * @return the sorted list
 	 */
 	public List<String> sort(List<String> tri) {
 		Collections.sort(tri);
@@ -44,9 +43,9 @@ public class AnalyticsCounter {
 	}
 	/**
 	 * @param alpha
-	 * on copie le array sur un treemap
-	 * on utilise le TreeMap plutot que le HashMap etant donne que le tri a ete fait au prealable
-	 * @return le Map trie par ordre alphabetique et comptabilise
+	 * we copy the ArrayList to a TreeMap
+	 * we use the TreeMap rather than the HashMap because of the sorting we had been done before
+	 * @return the Map sorts in alphabetical order and counted
 	 */
 	public Map<String, Integer> count (List<String> alpha){
 		//on cree le TreeMap
@@ -62,9 +61,9 @@ public class AnalyticsCounter {
 		return listAlpha;
 	}
 	/** @param writen
-	 * on ecrit le fichier de sortie en y incluant les exceptions
-	 * @exception IOException
-	 * 	declenchee si le fichier result.out n'a pas ete genere
+	 * we write the output file including the exceptions
+	 * exception IOException
+	 * triggered if the result.out file has not been generated
 	 */
 	public void write (Map<String, Integer> writen)  {
 		try {
@@ -78,5 +77,5 @@ public class AnalyticsCounter {
 		} catch ( IOException exception) {
 			System.out.println("Le fichier n'a pas pu être écrit ");
 		}
-	}
+	} // mettre un finally ???
 }
