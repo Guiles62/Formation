@@ -59,11 +59,11 @@ public class AnalyticsCounter {
 	public void count (){
 
 		for(int i = 0; i< dataFile.size(); i++){
-		if(countData.containsKey(dataFile.get(i))){
+			if(countData.containsKey(dataFile.get(i))){
 		countData.put(dataFile.get(i), countData.get(dataFile.get(i)) + 1);
-		} else {
+			} else {
 			countData.put(dataFile.get(i), 1);
-		}
+			}
 		}
 
 	}
