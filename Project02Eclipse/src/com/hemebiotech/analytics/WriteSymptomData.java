@@ -22,12 +22,12 @@ public class WriteSymptomData {
                 }
                 writer.close();
             } catch (IOException exception) {
-                System.out.println("Le fichier n'a pas pu être écrit ");
+                System.out.println("can't write the file ");
             } finally {
                 try {
                 writer.close();
                 } catch (IOException exception) {
-                    System.out.println("Le fichier n'a pas pu être fermé ");
+                    System.out.println("can't close FileWriter ");
                 }
             }
         }

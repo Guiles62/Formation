@@ -26,23 +26,30 @@ public class AnalyticsCounter {
 	* we will look for the ReadSympomDataFromFile class and we instantiate it here by indicating the path of the file.txt
 	*/
 	private String filepath;
-	private List<String> arrayList;
-	private Map<String,Integer> tri = new TreeMap<>();
+	private List<String> dataFile;
+	private Map<String,Integer> countData = new TreeMap<>();
 
 	public void start(String filepath)  {
 		this.filepath = filepath;
-		ReadSymptomDataFromFile symptomsData = new ReadSymptomDataFromFile(this.filepath);
-		arrayList = symptomsData.getSymptoms();
+		read();
 		sort();
 		count();
 		write();
+	}
+
+	/**@param read
+	 * read the arraylist include symptoms
+	 */
+	public void read () {
+		ReadSymptomDataFromFile symptomsData = new ReadSymptomDataFromFile(this.filepath);
+		dataFile = symptomsData.getSymptoms();
 	}
 	/**
 	 * @param sort
 	 * we sort the ArrayList in alphabetical order
 	 */
 	public void sort() {
-		Collections.sort(arrayList);
+		Collections.sort(dataFile);
 	}
 	/**
 	 * @param count
@@ -51,11 +58,11 @@ public class AnalyticsCounter {
 	 */
 	public void count (){
 
-		for(int i = 0; i< arrayList.size(); i++){
-		if(tri.containsKey(arrayList.get(i))){
-		tri.put(arrayList.get(i), tri.get(arrayList.get(i)) + 1);
+		for(int i = 0; i< dataFile.size(); i++){
+		if(countData.containsKey(dataFile.get(i))){
+		countData.put(dataFile.get(i), countData.get(dataFile.get(i)) + 1);
 		} else {
-			tri.put(arrayList.get(i), 1);
+			countData.put(dataFile.get(i), 1);
 		}
 		}
 
@@ -67,6 +74,6 @@ public class AnalyticsCounter {
 
 	public void write () {
 		WriteSymptomData writen = new WriteSymptomData();
-		writen.write(tri);
+		writen.write(countData);
 	}
 }
