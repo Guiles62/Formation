@@ -6,11 +6,13 @@ import java.util.Map;
 
 /**
  * It's the class for write the final file with exception
- * @param write
+ * @exception
  */
 
 public class WriteSymptomData {
-
+    /**
+     * @param writen the data which will write on the out file
+     */
     public void write(Map<String, Integer> writen) {
         FileWriter writer = null;
             try {

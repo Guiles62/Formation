@@ -21,14 +21,19 @@ import java.util.*;
 public class AnalyticsCounter {
 
 	/**
-	* @param start
+	* @param filepath filepath of the document.txt with symptoms
+	* @param dataFile the Arraylist with Symptoms
+	* @param countData the Map with Symptoms counted and sorted
 	* it's the start of the program who take method one by one
-	* we will look for the ReadSympomDataFromFile class and we instantiate it here by indicating the path of the file.txt
 	*/
 	private String filepath;
 	private List<String> dataFile;
 	private Map<String,Integer> countData = new TreeMap<>();
 
+	/**
+	 * the course of the program
+	 * @param filepath filepath of the document.txt with symptoms
+	 */
 	public void start(String filepath)  {
 		this.filepath = filepath;
 		read();
@@ -37,7 +42,7 @@ public class AnalyticsCounter {
 		write();
 	}
 
-	/**@param read
+	/**
 	 * read the arraylist include symptoms
 	 */
 	public void read () {
@@ -45,14 +50,12 @@ public class AnalyticsCounter {
 		dataFile = symptomsData.getSymptoms();
 	}
 	/**
-	 * @param sort
 	 * we sort the ArrayList in alphabetical order
 	 */
 	public void sort() {
 		Collections.sort(dataFile);
 	}
 	/**
-	 * @param count
 	 * we copy the ArrayList to a TreeMap
 	 * we use the TreeMap rather than the HashMap because of the sorting we had been done before
 	 */
@@ -67,7 +70,7 @@ public class AnalyticsCounter {
 		}
 
 	}
-	/** @param write
+	/**
 	 * Instatiate the WriteSymptomData class
 	 * we write the output file
 	 */

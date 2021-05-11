@@ -10,6 +10,10 @@ package com.hemebiotech.analytics;
 
 
 public class Launcher {
+    /**
+     * The main method for execute the program
+     * @param args
+     */
     public static void main(String[] args)  {
         // @param instantiation de la class AnalyticsCounter
         AnalyticsCounter analyticsCounter = new AnalyticsCounter();

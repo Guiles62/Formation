@@ -17,6 +17,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	/**
 	 * 
 	 * @param filepath a full or partial path to file with symptom strings in it, one per line
+	 * @exception
 	 */
 	public ReadSymptomDataFromFile (String filepath) {
 		this.filepath = filepath;
